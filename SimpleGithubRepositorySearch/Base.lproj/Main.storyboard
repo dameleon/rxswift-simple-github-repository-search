@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1108" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="wTS-Ps-gnr">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="3rs-9R-Jjt">
+            <objects>
+                <viewController id="wTS-Ps-gnr" customClass="ViewController" customModule="SimpleGithubRepositorySearch" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="IcL-eW-HnZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="HFE-2e-sgy"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="M5y-vY-WF0">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="7fl-3K-PEV">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2mz-ae-M76">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="GithubRepositoryItemCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="GithubRepositoryItemCell" id="22L-bd-hab" customClass="GithubRepositoryItemCell" customModule="SimpleGithubRepositorySearch" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="22L-bd-hab" id="9wS-o9-8GW">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="04N-9e-1wn">
+                                                    <rect key="frame" x="8" y="8" width="359" height="27"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="04N-9e-1wn" firstAttribute="top" secondItem="9wS-o9-8GW" secondAttribute="topMargin" id="Mqm-2a-hOX"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="04N-9e-1wn" secondAttribute="trailing" id="QTo-HU-paN"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="04N-9e-1wn" secondAttribute="bottom" id="S5T-pf-eIw"/>
+                                                <constraint firstItem="04N-9e-1wn" firstAttribute="leading" secondItem="9wS-o9-8GW" secondAttribute="leadingMargin" id="gsO-eg-RUQ"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="name" destination="04N-9e-1wn" id="4Gg-t7-WH7"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="2mz-ae-M76" secondAttribute="trailing" id="NdH-F9-JNf"/>
+                            <constraint firstItem="HFE-2e-sgy" firstAttribute="top" secondItem="2mz-ae-M76" secondAttribute="bottom" id="V9W-Cy-QwU"/>
+                            <constraint firstItem="2mz-ae-M76" firstAttribute="leading" secondItem="M5y-vY-WF0" secondAttribute="leading" id="deE-kE-yC0"/>
+                            <constraint firstItem="7fl-3K-PEV" firstAttribute="top" secondItem="IcL-eW-HnZ" secondAttribute="bottom" id="nNa-dx-ZZR"/>
+                            <constraint firstItem="7fl-3K-PEV" firstAttribute="leading" secondItem="M5y-vY-WF0" secondAttribute="leading" id="pN7-FR-Oqa"/>
+                            <constraint firstAttribute="trailing" secondItem="7fl-3K-PEV" secondAttribute="trailing" id="sZg-lP-Gvq"/>
+                            <constraint firstItem="2mz-ae-M76" firstAttribute="top" secondItem="7fl-3K-PEV" secondAttribute="bottom" id="uXN-Lf-Jrp"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="searchBar" destination="7fl-3K-PEV" id="10i-yl-dU0"/>
+                        <outlet property="tableView" destination="2mz-ae-M76" id="Vem-Qq-0Yc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vny-X6-PF6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-234" y="-101"/>
+        </scene>
+    </scenes>
+</document>

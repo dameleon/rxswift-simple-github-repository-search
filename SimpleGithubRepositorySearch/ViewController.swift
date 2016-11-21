@@ -19,10 +19,6 @@ class ViewController: UIViewController, UITableViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.tableView.rx
-            .setDelegate(self)
-            .addDisposableTo(self.disposeBag)
-        
         let searchResult = self.searchBar.rx.text.orEmpty
             .throttle(0.5, scheduler: MainScheduler.instance)
             .distinctUntilChanged()

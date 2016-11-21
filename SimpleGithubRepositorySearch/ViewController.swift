@@ -25,6 +25,7 @@ class ViewController: UIViewController, UITableViewDelegate {
         
         let searchResult = self.searchBar.rx.text.orEmpty
             .throttle(0.5, scheduler: MainScheduler.instance)
+            .distinctUntilChanged()
             .map { $0.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed) ?? "" }
             .flatMapLatest { query -> Observable<[String]> in
                 if (query.isEmpty) {
@@ -37,11 +38,11 @@ class ViewController: UIViewController, UITableViewDelegate {
                             let items = res.object(forKey: "items")! as? [AnyObject] ?? []
                             return items.map { $0.object(forKey: "full_name") as! String }
                         }
+                        .observeOn(MainScheduler.instance)
                 }
             }
         
         searchResult
-            .observeOn(MainScheduler.instance)
             .bindTo(self.tableView.rx.items(cellIdentifier: "GithubRepositoryItemCell", cellType: GithubRepositoryItemCell.self)) { (row, element, cell) in
                 cell.setName(name: element)
             }
